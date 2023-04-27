@@ -42,7 +42,10 @@ strtEl.setAttribute("style", "display:flex")
 
 
    
-strtEl.addEventListener("click", function() {
+strtEl.addEventListener("click", function(event) {
+
+//event.preventDefault();
+
 
 var secondsleft = 100;
 
@@ -57,7 +60,7 @@ var timeInterval = setInterval(function(){
 
         clearInterval(timeInterval);
 
-        scoreMessage();
+       // scoreMessage();
     }
 
 },1000);
@@ -74,12 +77,39 @@ var questionList = [
        correct: "2. alerts",
    },
 
+
    {
        List: "The condition in an if/ else statement is enclosed within ______.",
        answer: ["1. quotes","2. curlybracket","3. parantheses","4. square brackets"],
        correct: "3. parantheses",
-   }
+   },
+
+
+   {
+       List: "The condition in an if/ else statement is enclosed within ______.",
+       answer: ["1. quotes","2. curlybracket","3. parantheses","4. square brackets"],
+       correct: "3. parantheses",
+   },
+
+
+   {
+       List: "The condition in an if/ else statement is enclosed within ______.",
+       answer: ["1. quotes","2. curlybracket","3. parantheses","4. square brackets"],
+       correct: "3. parantheses",
+   },
+
+   {
+       List: "The condition in an if/ else statement is enclosed within ______.",
+       answer: ["1. quotes","2. curlybracket","3. parantheses","4. square brackets"],
+       correct: "3. parantheses",
+   },
 ];
+
+
+
+
+
+
 
 pEl.setAttribute("style", "display: none")
 strtEl.setAttribute("style", "display: none")
@@ -97,7 +127,15 @@ for (var i=0; i < questionList.length; i++) {
     answEl.children[2].textContent = questionList[i].answer[2];
     answEl.children[3].textContent = questionList[i].answer[3];
 
-console.log(questionList.length)
+//event.stopPropagation();
+answEl.children[0].addEventListener("click", function(event){
+    var final = EventTarget;
+    console.log(EventTarget);
+
+     }),
+
+
+console.log(event)
 
 }
 }

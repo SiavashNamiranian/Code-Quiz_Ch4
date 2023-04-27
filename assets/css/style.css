@@ -65,7 +65,8 @@ li {
   margin: 2px;
   border-radius:5px;
   color:white;
-  list-style: none;
+  list-style:inside;
+  list-style-position: inside;
   display: flex;
   padding: 2px;
   position: relative;
