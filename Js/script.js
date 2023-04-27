@@ -122,25 +122,25 @@ var questionIndex = 0;
 answEl.children[0].addEventListener("click", function(event){
     var final = EventTarget;
     console.log(EventTarget);
-    if (final === answEl[questionIndex].correct)    
+    if (final === questionList[questionIndex].correct)    
     questionIndex+=questionIndex++
      }),
 answEl.children[1].addEventListener("click", function(event){
     var final = EventTarget;
     console.log(EventTarget);
-    if (final === answEl[questionIndex].correct)    
+    if (final === questionList[questionIndex].correct)    
     questionIndex+=questionIndex++
     }),
 answEl.children[2].addEventListener("click", function(event){
     var final = EventTarget;
     console.log(EventTarget);
-    if (final === answEl[questionIndex].correct)    
+    if (final === questionList[questionIndex].correct)    
     questionIndex+=questionIndex++
     }),
-answEl.children[0].addEventListener("click", function(event){
+answEl.children[3].addEventListener("click", function(event){
     var final = EventTarget;
     console.log(EventTarget);
-    if (final === answEl[questionIndex].correct)    
+    if (final === questionList[questionIndex].correct)    
     questionIndex+=questionIndex++
     }),
     
