@@ -105,38 +105,46 @@ var questionList = [
    },
 ];
 
-
-
-
-
-
-
 pEl.setAttribute("style", "display: none")
 strtEl.setAttribute("style", "display: none")
 answEl.setAttribute("style", "display: relative");
 queEl.setAttribute("style", "font-size: 150%");
 
+var questionIndex = 0; 
 
-
-
-
-for (var i=0; i < questionList.length; i++) {
-    queEl.textContent = questionList[i].List
-    answEl.children[0].textContent = questionList[i].answer[0];
-    answEl.children[1].textContent = questionList[i].answer[1];
-    answEl.children[2].textContent = questionList[i].answer[2];
-    answEl.children[3].textContent = questionList[i].answer[3];
+    queEl.textContent = questionList[questionIndex].List
+    answEl.children[0].textContent = questionList[questionIndex].answer[0];
+    answEl.children[1].textContent = questionList[questionIndex].answer[1];
+    answEl.children[2].textContent = questionList[questionIndex].answer[2];
+    answEl.children[3].textContent = questionList[questionIndex].answer[3];
 
 //event.stopPropagation();
 answEl.children[0].addEventListener("click", function(event){
     var final = EventTarget;
     console.log(EventTarget);
-
+    if (final === answEl[questionIndex].correct)    
+    questionIndex+=questionIndex++
      }),
-
-
+answEl.children[1].addEventListener("click", function(event){
+    var final = EventTarget;
+    console.log(EventTarget);
+    if (final === answEl[questionIndex].correct)    
+    questionIndex+=questionIndex++
+    }),
+answEl.children[2].addEventListener("click", function(event){
+    var final = EventTarget;
+    console.log(EventTarget);
+    if (final === answEl[questionIndex].correct)    
+    questionIndex+=questionIndex++
+    }),
+answEl.children[0].addEventListener("click", function(event){
+    var final = EventTarget;
+    console.log(EventTarget);
+    if (final === answEl[questionIndex].correct)    
+    questionIndex+=questionIndex++
+    }),
+    
 console.log(event)
 
-}
 }
 );
