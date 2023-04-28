@@ -42,7 +42,7 @@ strtEl.setAttribute("style", "display:flex")
 
 
    
-strtEl.addEventListener("click", function(event) {
+strtEl.addEventListener("click", function() {
 
 //event.preventDefault();
 
@@ -120,31 +120,24 @@ var questionIndex = 0;
 
 //event.stopPropagation();
 answEl.children[0].addEventListener("click", function(event){
-    var final = EventTarget;
-    console.log(EventTarget);
-    if (final === questionList[questionIndex].correct)    
+    console.log(event);
+    if (event.target.outerText === questionList[questionIndex].correct)    
     questionIndex+=questionIndex++
      }),
 answEl.children[1].addEventListener("click", function(event){
-    var final = EventTarget;
-    console.log(EventTarget);
-    if (final === questionList[questionIndex].correct)    
+    console.log(event);
+    if (event.target.outerText === questionList[questionIndex].correct)    
     questionIndex+=questionIndex++
     }),
 answEl.children[2].addEventListener("click", function(event){
-    var final = EventTarget;
-    console.log(EventTarget);
-    if (final === questionList[questionIndex].correct)    
+    console.log(event);
+    if (event.target.outerText === questionList[questionIndex].correct)    
     questionIndex+=questionIndex++
     }),
 answEl.children[3].addEventListener("click", function(event){
-    var final = EventTarget;
-    console.log(EventTarget);
-    if (final === questionList[questionIndex].correct)    
+    console.log(event);
+    if (event.target.outerText === questionList[questionIndex].correct)    
     questionIndex+=questionIndex++
     }),
-    
-console.log(event)
-
 }
 );
