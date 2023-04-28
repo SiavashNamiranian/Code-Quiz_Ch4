@@ -8,17 +8,6 @@ var fdbkEl = document.querySelector(".outcome")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 queEl.textContent = "Coding Quiz Challenge";
 queEl.setAttribute("style", "font-size: 200%")
 pEl.textContent = "Try to answer the following code-related questions within the time limit. keep in mind that incorrect answers will penalize your score/time by ten seconds!";
@@ -27,41 +16,10 @@ pEl.setAttribute("style", "display: flex")
 strtEl.setAttribute("style", "display:flex")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
    
 strtEl.addEventListener("click", function() {  
 
-var secondsleft = 100;
-
-function setTime() {
-
-var timeInterval = setInterval(function(){
-    secondsleft--;
-
-    timeEl.textContent = "Time :" + secondsleft
-
-    if(secondsleft === 0) {
-
-        clearInterval(timeInterval);
-
-       // scoreMessage();
-    }
-
-},1000);
-
-}
+var i = 0; 
 
 var questionList = [
     {
@@ -105,9 +63,31 @@ queEl.setAttribute("style", "font-size: 150%");
 
 
 
-var i = 0; 
 
-    queEl.textContent = questionList[i].List
+function quiz() {
+
+    var secondsleft = 100;
+
+    function setTime() {
+    
+    var timeInterval = setInterval(function(){
+        secondsleft--;
+    
+        timeEl.textContent = "Time :" + secondsleft
+    
+        if(secondsleft === 0) {
+    
+            clearInterval(timeInterval);
+    
+           // scoreMessage();
+        }
+    
+    },1000);
+    
+    }    
+
+
+    queEl.textContent = questionList[i].List;
     answEl.children[0].textContent = questionList[i].answer[0];
     answEl.children[1].textContent = questionList[i].answer[1];
     answEl.children[2].textContent = questionList[i].answer[2];
@@ -115,33 +95,73 @@ var i = 0;
 
     answEl.children[0].addEventListener("click", function(event){
     console.log(event);
-    console.log(event.target.outerText);
-    console.log(questionList[i].correct);
-    if (event.target.outerText === questionList[i].correct){    
-    i=i++
-     }})
-answEl.children[1].addEventListener("click", function(event){
-    console.log(event);
-    console.log(event.target.outerText);
-    if (event.target.outerText === questionList[i].correct){    
-    i=i++
+    console.log(event.target.outerText === questionList[i].correct);
+    if (event.target.outerText === questionList[i].correct){
+        fdbkEl.setAttribute("style", "visibility:visible");
+        fdbkEl.textContent = "correct!";
+        i++;  
+     } else {
+        secondsleft = secondsleft-10;
+        fdbkEl.setAttribute("style", "visibility:visible");
+        fdbkEl.textContent = "wrong!";
+        clearInterval(timeInterval);
+        i++;
     }})
-answEl.children[2].addEventListener("click", function(event){
+    answEl.children[1].addEventListener("click", function(event){
     console.log(event);
-    console.log(event.target.outerText);
-    if (event.target.outerText === questionList[i].correct){    
-    i=i++
+    console.log(event.target.outerText === questionList[i].correct);
+    if (event.target.outerText === questionList[i].correct){
+        fdbkEl.setAttribute("style", "visibility:visible");
+        fdbkEl.textContent = "correct!";
+        i++; 
+    } else {
+        secondsleft = secondsleft-10;
+        fdbkEl.setAttribute("style", "visibility:visible");
+        fdbkEl.textContent = "wrong!";
+        clearInterval(timeInterval);
+        i++; 
     }})
-answEl.children[3].addEventListener("click", function(event){
+    answEl.children[2].addEventListener("click", function(event){
     console.log(event);
-    console.log(event.target.outerText);
-    if (event.target.outerText === questionList[i].correct){    
-    i=i++
+    console.log((event.target.outerText === questionList[i].correct));
+    if (event.target.outerText === questionList[i].correct){
+        fdbkEl.setAttribute("style", "visibility:visible");
+        fdbkEl.textContent = "correct!";
+        i++;
+    } else {
+        secondsleft = secondsleft-10;
+        fdbkEl.setAttribute("style", "visibility:visible");
+        fdbkEl.textContent = "wrong!";
+        clearInterval(timeInterval);
+        i++; 
     }})
-
-
-    setTime();
+    answEl.children[3].addEventListener("click", function(event){
+    console.log(event);
+    console.log(event.target.outerText === questionList[i].correct);
+    if (event.target.outerText === questionList[i].correct){    
+        fdbkEl.setAttribute("style", "visibility:visible");
+        fdbkEl.textContent = "correct!";
+        i++; 
+    } else {
+        secondsleft = secondsleft-10;
+        fdbkEl.setAttribute("style", "visibility:visible");
+        fdbkEl.textContent = "wrong!";
+        clearInterval(timeInterval);
+        i++; 
+    }})
+    
+    setTime() 
+    
 }
 
+quiz()
 
-)
+});
+    
+
+
+
+//return;
+
+//}
+//)
