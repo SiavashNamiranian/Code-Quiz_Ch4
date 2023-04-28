@@ -2,7 +2,9 @@
 
 ## Description
 
-This was a code quiz assignment without any codes to begin with. The page generated supposed to track the time and score which is based on the "secondsleft" element when the quiz in done using the local memory, 
+This was a code quiz assignment without any codes to begin with. The page generated supposed to track the time and score which is based on the "secondsleft" element when the quiz in done using the local memory,
+ https://siavashnamiranian.github.io/Code-Quiz_Ch4/
+ https://github.com/SiavashNamiranian/Code-Quiz_Ch4 
 
 ![pageperformance](./assets/css/image/Untitled%20video%20-%20Made%20with%20Clipchamp%20(3).gif)
 
