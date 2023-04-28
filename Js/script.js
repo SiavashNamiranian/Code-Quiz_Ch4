@@ -1,19 +1,21 @@
-var timeEl = document.querySelector(".timer")
-var queEl = document.getElementById("question")
-var pEl = document.getElementById("note")
-var strtEl = document.getElementById("start")
-var scoreEl = document.getElementById("score")
-var answEl= document.querySelector("ol")
-var fdbkEl = document.querySelector(".outcome")
+var timeEl = document.querySelector(".timer");
+var queEl = document.getElementById("question");
+var pEl = document.getElementById("note");
+var strtEl = document.getElementById("start");
+var scoreEl = document.getElementById("score");
+var answEl= document.querySelector("ol");
+var fdbkEl = document.querySelector(".outcome");
+var resEl = document.getElementById("result");
 
 
 
 queEl.textContent = "Coding Quiz Challenge";
-queEl.setAttribute("style", "font-size: 200%")
+queEl.setAttribute("style", "font-size: 200%");
 pEl.textContent = "Try to answer the following code-related questions within the time limit. keep in mind that incorrect answers will penalize your score/time by ten seconds!";
 answEl.setAttribute("style", "display: none");
-pEl.setAttribute("style", "display: flex")
-strtEl.setAttribute("style", "display:flex")
+pEl.setAttribute("style", "display: flex");
+strtEl.setAttribute("style", "display:flex");
+resEl.setAttribute("style", "display: none");
 
 
    
@@ -63,9 +65,6 @@ queEl.setAttribute("style", "font-size: 150%");
 
 
 
-
-function quiz() {
-
     var secondsleft = 100;
 
     function setTime() {
@@ -87,6 +86,8 @@ function quiz() {
     }    
 
 
+    function quiz() {
+
     queEl.textContent = questionList[i].List;
     answEl.children[0].textContent = questionList[i].answer[0];
     answEl.children[1].textContent = questionList[i].answer[1];
@@ -99,13 +100,12 @@ function quiz() {
     if (event.target.outerText === questionList[i].correct){
         fdbkEl.setAttribute("style", "visibility:visible");
         fdbkEl.textContent = "correct!";
-        i++;  
+        return i++;  
      } else {
         secondsleft = secondsleft-10;
         fdbkEl.setAttribute("style", "visibility:visible");
         fdbkEl.textContent = "wrong!";
-        clearInterval(timeInterval);
-        i++;
+        return i++;
     }})
     answEl.children[1].addEventListener("click", function(event){
     console.log(event);
@@ -113,27 +113,25 @@ function quiz() {
     if (event.target.outerText === questionList[i].correct){
         fdbkEl.setAttribute("style", "visibility:visible");
         fdbkEl.textContent = "correct!";
-        i++; 
+        return i++; 
     } else {
         secondsleft = secondsleft-10;
         fdbkEl.setAttribute("style", "visibility:visible");
         fdbkEl.textContent = "wrong!";
-        clearInterval(timeInterval);
-        i++; 
+        return i++; 
     }})
     answEl.children[2].addEventListener("click", function(event){
     console.log(event);
-    console.log((event.target.outerText === questionList[i].correct));
+    console.log(event.target.outerText === questionList[i].correct);
     if (event.target.outerText === questionList[i].correct){
         fdbkEl.setAttribute("style", "visibility:visible");
         fdbkEl.textContent = "correct!";
-        i++;
+        return i++;
     } else {
         secondsleft = secondsleft-10;
         fdbkEl.setAttribute("style", "visibility:visible");
         fdbkEl.textContent = "wrong!";
-        clearInterval(timeInterval);
-        i++; 
+        return i++; 
     }})
     answEl.children[3].addEventListener("click", function(event){
     console.log(event);
@@ -141,27 +139,18 @@ function quiz() {
     if (event.target.outerText === questionList[i].correct){    
         fdbkEl.setAttribute("style", "visibility:visible");
         fdbkEl.textContent = "correct!";
-        i++; 
+        return i++; 
     } else {
         secondsleft = secondsleft-10;
         fdbkEl.setAttribute("style", "visibility:visible");
         fdbkEl.textContent = "wrong!";
-        clearInterval(timeInterval);
-        i++; 
+        return i++; 
     }})
     
-    setTime() 
     
+    setTime()
 }
 
 quiz()
 
 });
-    
-
-
-
-//return;
-
-//}
-//)
