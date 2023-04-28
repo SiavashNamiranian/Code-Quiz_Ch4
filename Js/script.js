@@ -121,23 +121,23 @@ var questionIndex = 0;
 //event.stopPropagation();
 answEl.children[0].addEventListener("click", function(event){
     console.log(event);
-    if (event.target.outerText === questionList[questionIndex].correct)    
+    if (event.target.outerText === questionList[questionIndex].correct){    
     questionIndex+=questionIndex++
-     }),
+     }}),
 answEl.children[1].addEventListener("click", function(event){
     console.log(event);
-    if (event.target.outerText === questionList[questionIndex].correct)    
+    if (event.target.outerText === questionList[questionIndex].correct){    
     questionIndex+=questionIndex++
-    }),
+    }}),
 answEl.children[2].addEventListener("click", function(event){
     console.log(event);
-    if (event.target.outerText === questionList[questionIndex].correct)    
+    if (event.target.outerText === questionList[questionIndex].correct){    
     questionIndex+=questionIndex++
-    }),
+    }}),
 answEl.children[3].addEventListener("click", function(event){
     console.log(event);
-    if (event.target.outerText === questionList[questionIndex].correct)    
+    if (event.target.outerText === questionList[questionIndex].correct){    
     questionIndex+=questionIndex++
-    }),
+    }}),
 }
 );
