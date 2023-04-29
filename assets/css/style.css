@@ -57,7 +57,10 @@ p{
     filter:brightness(70%)
 }
 
-
+section{
+    display: flex;
+    flex-flow: row nowrap;
+}
 
 li {
   width: fit-content;
