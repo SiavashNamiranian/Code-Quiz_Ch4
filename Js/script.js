@@ -19,7 +19,7 @@ resEl.setAttribute("style", "display: none");
 
 
 var i = 0; 
-var secondsleft = 100; 
+var secondsleft = 100;
    
 strtEl.addEventListener("click", function startQuiz() {  
 
@@ -27,36 +27,17 @@ strtEl.addEventListener("click", function startQuiz() {
     strtEl.setAttribute("style", "display: none");
     answEl.setAttribute("style", "display: relative");
     queEl.setAttribute("style", "font-size: 150%");
-
-
-
-
-console.log(i); 
-
-
-
-
     
+
     var timeInterval = setInterval(function(){
-         
-        if (secondsleft > 0){secondsleft--};
-        
-        if(secondsleft === 0) {
-    
-        clearInterval(timeInterval);   
-     
-        scoreMessage();
-        };
-
-    
-        timeEl.textContent = "Time :" + secondsleft
-    
-       
-},1000);
+        if (secondsleft>0) {
+            secondsleft--;
+            timeEl.textContent = "Time:" + secondsleft
+        }
+    }, 1000);
 
 
-
-           var questionList = [
+        var questionList = [
             {
                List: "Commonly used data types Do Not include: ",
                answer: ["1. strings","2. boleans","3. alerts","4. numbers"],
@@ -70,9 +51,9 @@ console.log(i);
                correct: "3. parantheses",
            },
 
-           {
-                List: "Arrays in JavaScript can be used to store ____.",
-                answer: ["1. numbers and strings","2. other arrays","3.booleans","4. all of the above"],
+           {    
+                List: "arrays in Javascript can be used to store ____.",
+                answer: ["1. numbers and strings","2. other arrays","3.boolean","4. all of the above"],
                 correct: "4. all of the above",
             },
 
@@ -83,7 +64,7 @@ console.log(i);
            },
         
            {
-               List: "A very useful tool used during development and debugging for printing content to the debugger is: ",
+               List: "a very useful tool used during development and debugging for printing content to the debugger is: ",
                answer: ["1. Javascript","2. terminal/bash","3. for loops","4. console.log"],
                correct: "4. console.log",
            },
@@ -92,33 +73,44 @@ console.log(i);
         console.log(i);      
 
 
-   queEl.textContent = questionList[i].List;
-   answEl.children[0].textContent = questionList[i].answer[0];
-   answEl.children[1].textContent = questionList[i].answer[1];
-   answEl.children[2].textContent = questionList[i].answer[2];
-   answEl.children[3].textContent = questionList[i].answer[3];
+    queEl.textContent = questionList[i].List;
+    answEl.children[0].textContent = questionList[i].answer[0];
+    answEl.children[1].textContent = questionList[i].answer[1];
+    answEl.children[2].textContent = questionList[i].answer[2];
+    answEl.children[3].textContent = questionList[i].answer[3];
 
-   answEl.addEventListener("click", function(event){
-    console.log(event.target.outerText)    
-   if (event.target.outerText === questionList[i].correct){
-       fdbkEl.setAttribute("style", "visibility:visible");
-       fdbkEl.textContent = "correct!";
-       clearInterval(timeInterval)
-       while (i < questionList.length-1) {return startQuiz(i++)} 
-       ;
-    } else {
-       secondsleft = secondsleft-10;
-       fdbkEl.setAttribute("style", "visibility:visible");
-       fdbkEl.textContent = "wrong!"; 
-       clearInterval(timeInterval)
-       while (i < questionList.length-1) {return startQuiz(i++);}
-        
-    };
+    answEl.addEventListener("click", function(event){
+    
 
+        console.log(event.target.outerText);
+    
+         console.log(questionList.length);
+
+         if (i === questionList.length) {
+            clearInterval(timeInterval);
+            timeEl.textContent = "Time :" + secondsleft; 
+            pEl.setAttribute("style", "display: flex");
+            resEl.setAttribute("style", "display: flex");
+            answEl.setAttribute("style", "display: none");
+            queEl.setAttribute("style", "font-size: 200%");  
+            fdbkEl.setAttribute("style", "visibility:hidden");
+            pEl.textContent= "your score is " + secondsleft
+            queEl.textContent= "All Done !"          
+            } else if (event.target.outerText == questionList[i].correct){
+            fdbkEl.setAttribute("style", "visibility:visible");
+            fdbkEl.textContent = "correct!"
+            return startQuiz(i+=1);
+            } else {
+            secondsleft = secondsleft-10;
+            fdbkEl.setAttribute("style", "visibility:visible");
+             fdbkEl.textContent = "wrong!"; 
+             return startQuiz(i+=1);   
+        }
+    
     }
     );
-
-
-
+ 
 }
+
 );
+

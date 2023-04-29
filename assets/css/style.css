@@ -50,7 +50,7 @@ p{
     border: none;
     border-radius: 5px;
     padding: 2px;
-    display: none;
+    /* display: none; */
 }
 
 .button:hover{
@@ -92,5 +92,18 @@ li:hover {
     padding:5px;
     margin: auto;
     visibility: hidden;
+}
 
+.text {
+    margin: 5px;
+}
+
+#submit {
+    margin:5px;
+}
+
+#result::before {
+    content: "Enter Initial";
+    color:black;
+    margin-top:5px;
 }
